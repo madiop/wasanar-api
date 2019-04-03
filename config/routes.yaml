@@ -1,0 +1,21 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# books:
+#     path: /books
+#     controller: App\Controller\BooksController::index
+#     methods: [POST, GET]
+
+register:
+    path: /register
+    controller: App\Controller\AuthenticateController::register
+    methods: POST
+
+api:
+    path: /api
+    controller: App\Controller\AuthenticateController::api
+
+login_check:
+    path:     /login_check
+    methods: [POST]
