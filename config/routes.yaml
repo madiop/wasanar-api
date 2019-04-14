@@ -19,3 +19,8 @@ api:
 login_check:
     path:     /login_check
     methods: [POST]
+
+authenticate:
+    path:     /authenticate
+    controller: App\Controller\AuthenticateController::auth
+    methods: [POST, GET]
