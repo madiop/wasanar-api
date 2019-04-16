@@ -106,7 +106,7 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Roles", mappedBy="users")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Roles", mappedBy="users", cascade={"persist"})
      * @ApiSubresource(maxDepth=1)
      * @Groups({
      *     "user.read",
@@ -222,7 +222,13 @@ class User implements UserInterface
      */
     public function getRoles(): array
     {
-        return $this->roles->toArray();
+        
+        $roles = [];
+        foreach($this->roles as $role){
+            $roles[] = $role->getName();
+        }
+        return $roles;
+        // return $this->roles->toArray();
         // return array('ROLE_USER');
     }
 
